@@ -37,6 +37,8 @@ terrain_hex_distribution = {
 
 # The class representing a terrain hex on the board
 class TerrainHex:
-    def __init__(self, terrain_type, number_token=None):
+    def __init__(self, terrain_type, r, c, number_token=None):
         self.terrain_type = terrain_type
         self.number_token = number_token
+        self.row = r
+        self.col = c

@@ -1,6 +1,6 @@
-from number_tokens import NumberToken
-from settlement_location import SettlementLocation
-from terrain_hexes import TerrainHex, TerrainType
+from .number_tokens import NumberToken
+from .settlement_location import SettlementLocation
+from .terrain_hexes import TerrainHex, TerrainType
 
 
 # A class representing and containing the methods of a Catan board
@@ -37,7 +37,7 @@ class Board:
         for row in range(len(self.hexes)):
             for col in range(len(self.hexes[row])):
                 # Instantiates a TerrainHex, turning the int in terrain_types into its corresponding TerrainType first
-                terrain = TerrainHex(TerrainType(terrain_types[terrain_index]))
+                terrain = TerrainHex(TerrainType(terrain_types[terrain_index]), row, col)
 
                 # Link a NumberToken instance to this TerrainHex if possible
                 if tile_numbers is not None:
@@ -93,8 +93,8 @@ class Board:
             # Fourth row of vertices has 2 unique and 3 shared SettlementLocations
             row_four = [SettlementLocation([self.hexes[2 - multiplier * 1][0]])]
             for i in range(1, 4):
-                surrounding_terrain_hexes = [self.hexes[2 - multiplier * 2][i - 1], self.hexes[1][i - 1],
-                                             self.hexes[1][i]]
+                surrounding_terrain_hexes = [self.hexes[2 - multiplier * 2][i - 1], self.hexes[2 - multiplier * 1][i - 1],
+                                             self.hexes[2 - multiplier * 1][i]]
                 row_four.append(SettlementLocation(surrounding_terrain_hexes))
 
             row_four.append(SettlementLocation([self.hexes[2 - multiplier * 1][3]]))
