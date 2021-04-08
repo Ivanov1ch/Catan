@@ -36,3 +36,6 @@ class NumberToken:
             raise ValueError("Number tokens must have integer values between 2 and 12, inclusive, excluding 7!")
 
         self.dot_count = number_token_dots[number]
+
+    def __str__(self):
+        return '{0} ({1} dots)'.format(self.number, self.dot_count)

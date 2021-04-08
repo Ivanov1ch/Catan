@@ -63,3 +63,36 @@ known_clustered_layouts = [
         'tile_numbers': beginner_layout['tile_numbers']
     }, 100],
 ]
+
+# Contains the four board layouts with known clustering scores, in an array with their known score
+known_probability_distribution_layouts = [
+    # Very well distributed board, asserted value calculated manually
+    [{
+        'terrain_types': [TerrainType.FOREST, TerrainType.FIELD, TerrainType.FOREST, TerrainType.HILL,
+                          TerrainType.MOUNTAIN,
+                          TerrainType.FOREST, TerrainType.HILL, TerrainType.MOUNTAIN, TerrainType.HILL,
+                          TerrainType.FIELD,
+                          TerrainType.PASTURE, TerrainType.PASTURE, TerrainType.PASTURE, TerrainType.MOUNTAIN,
+                          TerrainType.FIELD, TerrainType.DESERT, TerrainType.PASTURE, TerrainType.FOREST,
+                          TerrainType.FIELD],
+        'tile_numbers': [5, 11, 9, 12, 3, 10, 8, 6, 4, 8, 4, 9, 5, 10, 2, 3, 11, 6]
+    }, 16 / 27],
+    # Decently distributed board, asserted value calculated manually
+    [{
+        'terrain_types': [TerrainType.MOUNTAIN, TerrainType.FOREST, TerrainType.PASTURE, TerrainType.FIELD,
+                          TerrainType.FOREST, TerrainType.FIELD, TerrainType.MOUNTAIN, TerrainType.PASTURE,
+                          TerrainType.DESERT, TerrainType.FOREST, TerrainType.HILL, TerrainType.HILL, TerrainType.FIELD,
+                          TerrainType.FOREST, TerrainType.MOUNTAIN, TerrainType.PASTURE, TerrainType.PASTURE,
+                          TerrainType.FIELD, TerrainType.HILL],
+        'tile_numbers': [4, 5, 4, 6, 11, 9, 3, 2, 3, 11, 6, 8, 12, 10, 9, 5, 8, 10]
+    }, 1516 / 27],
+    # Very badly distributed board, asserted value calculated manually
+    [{
+        'terrain_types': [TerrainType.FIELD, TerrainType.FOREST, TerrainType.FOREST, TerrainType.PASTURE,
+                          TerrainType.FIELD, TerrainType.DESERT, TerrainType.FIELD, TerrainType.MOUNTAIN,
+                          TerrainType.PASTURE, TerrainType.HILL, TerrainType.PASTURE, TerrainType.MOUNTAIN,
+                          TerrainType.FIELD, TerrainType.HILL, TerrainType.HILL, TerrainType.MOUNTAIN,
+                          TerrainType.FOREST, TerrainType.PASTURE, TerrainType.FOREST],
+        'tile_numbers': [6, 9, 5, 2, 5, 8, 4, 11, 10, 12, 10, 6, 3, 3, 4, 9, 11, 8]
+    }, 2950 / 27],
+]

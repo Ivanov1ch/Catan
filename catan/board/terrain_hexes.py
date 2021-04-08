@@ -44,4 +44,4 @@ class TerrainHex:
         self.col = c
 
     def __str__(self):
-        return '({0}, {1}), {2}'.format(self.row, self.col, self.terrain_type)
+        return '({0}, {1}), {2}, {3}'.format(self.row, self.col, self.terrain_type, self.number_token)
