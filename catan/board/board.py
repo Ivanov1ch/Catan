@@ -1,6 +1,6 @@
-from .number_tokens import NumberToken
-from .settlement_location import SettlementLocation
-from .terrain_hexes import TerrainHex, TerrainType
+from catan.board.number_tokens import NumberToken
+from catan.board.settlement_location import SettlementLocation
+from catan.board.terrain_hexes import TerrainHex, TerrainType
 
 
 # A class representing and containing the methods of a Catan board
