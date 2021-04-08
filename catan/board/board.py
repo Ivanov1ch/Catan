@@ -1,3 +1,5 @@
+import enum
+
 from catan.board.number_tokens import NumberToken
 from catan.board.settlement_location import SettlementLocation
 from catan.board.terrain_hexes import TerrainHex, TerrainType
@@ -25,8 +27,26 @@ class Board:
             raise ValueError("Improper terrain_types or tile_numbers length (should be 19 and 18)")
 
         if terrain_types is not None:
-            self.translate_hexes_arr(terrain_types, tile_numbers=tile_numbers)
+            if isinstance(terrain_types[0], enum.Enum):
+                self.translate_terrain_types(terrain_types)
+            else:
+                self.terrain_types = terrain_types
+
+            self.translate_hexes_arr(self.terrain_types, tile_numbers=tile_numbers)
             self.generate_settlement_locations()
+
+    # Converts the array of enums into an array of ints using the enums' values
+    # This allows us to define a board with an easier-to-read array of TerrainTypes
+    def translate_terrain_types(self, terrain_type_enums):
+        converted_terrain_types = []
+
+        for terrain_enum in terrain_type_enums:
+            if isinstance(terrain_enum, enum.Enum):
+                converted_terrain_types.append(terrain_enum.value)
+            else:
+                converted_terrain_types.append(int(terrain_enum))
+
+        self.terrain_types = converted_terrain_types
 
     def translate_hexes_arr(self, terrain_types, tile_numbers=None):
         # A counter indicating where in the iteration through terrain_types the loop currently is
@@ -93,7 +113,8 @@ class Board:
             # Fourth row of vertices has 2 unique and 3 shared SettlementLocations
             row_four = [SettlementLocation([self.hexes[2 - multiplier * 1][0]])]
             for i in range(1, 4):
-                surrounding_terrain_hexes = [self.hexes[2 - multiplier * 2][i - 1], self.hexes[2 - multiplier * 1][i - 1],
+                surrounding_terrain_hexes = [self.hexes[2 - multiplier * 2][i - 1],
+                                             self.hexes[2 - multiplier * 1][i - 1],
                                              self.hexes[2 - multiplier * 1][i]]
                 row_four.append(SettlementLocation(surrounding_terrain_hexes))
 

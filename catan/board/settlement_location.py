@@ -19,3 +19,11 @@ class SettlementLocation:
                     resource_type = terrain_hex.terrain_type.get_resource_type()
                     self.available_resources.append(resource_type)
                     self.available_resource_distribution[resource_type.value] += 1
+
+    def __str__(self):
+        out = ''
+        for tile in self.surrounding_terrain_hexes:
+            out += str(tile)
+            out += ', '
+
+        return out
