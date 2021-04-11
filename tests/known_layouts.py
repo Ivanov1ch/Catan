@@ -64,7 +64,7 @@ known_clustered_layouts = [
     }, 100],
 ]
 
-# Contains the four board layouts with known clustering scores, in an array with their known score
+# Contains board layouts with known probability distribution per resource scores, in an array with their known score
 known_probability_distribution_layouts = [
     # Very well distributed board, asserted value calculated manually
     [{
@@ -95,4 +95,47 @@ known_probability_distribution_layouts = [
                           TerrainType.FOREST, TerrainType.PASTURE, TerrainType.FOREST],
         'tile_numbers': [6, 9, 5, 2, 5, 8, 4, 11, 10, 12, 10, 6, 3, 3, 4, 9, 11, 8]
     }, 2950 / 27],
+]
+
+# Contains board layouts with known probability distribution on board scores, in an array with their known score
+known_probability_distribution_on_board_layouts = [
+    # Perfectly distributed probability scores
+    [{
+        'terrain_types': [TerrainType.FIELD, TerrainType.FOREST, TerrainType.FIELD, TerrainType.FOREST,
+                          TerrainType.MOUNTAIN, TerrainType.HILL, TerrainType.PASTURE, TerrainType.PASTURE,
+                          TerrainType.FIELD, TerrainType.MOUNTAIN, TerrainType.FIELD, TerrainType.HILL,
+                          TerrainType.MOUNTAIN, TerrainType.PASTURE, TerrainType.HILL, TerrainType.DESERT,
+                          TerrainType.FOREST, TerrainType.PASTURE, TerrainType.FOREST],
+        'tile_numbers': [11, 5, 2, 4, 3, 9, 6, 3, 10, 6, 5, 11, 8, 4, 9, 10, 12, 8]
+    }, 0]
+]
+
+# Contains board layouts with known probability clustering scores, in an array with their known score
+known_probability_clustering_layouts = [
+    # A layout with no clustering
+    [{
+        'terrain_types': [TerrainType.FIELD, TerrainType.FOREST, TerrainType.FIELD, TerrainType.FOREST,
+                          TerrainType.DESERT, TerrainType.HILL, TerrainType.PASTURE, TerrainType.PASTURE,
+                          TerrainType.FIELD, TerrainType.MOUNTAIN, TerrainType.FIELD, TerrainType.HILL,
+                          TerrainType.MOUNTAIN, TerrainType.PASTURE, TerrainType.HILL, TerrainType.MOUNTAIN,
+                          TerrainType.FOREST, TerrainType.PASTURE, TerrainType.FOREST],
+        'tile_numbers': [3, 8, 2, 6, 5, 9, 4, 11, 8, 4, 12, 6, 9, 10, 3, 10, 5, 11]
+    }, 0],
+    [{
+        'terrain_types': [TerrainType.FIELD, TerrainType.FOREST, TerrainType.FIELD, TerrainType.FOREST,
+                          TerrainType.MOUNTAIN, TerrainType.HILL, TerrainType.PASTURE, TerrainType.PASTURE,
+                          TerrainType.FIELD, TerrainType.MOUNTAIN, TerrainType.FIELD, TerrainType.HILL,
+                          TerrainType.MOUNTAIN, TerrainType.PASTURE, TerrainType.HILL, TerrainType.DESERT,
+                          TerrainType.FOREST, TerrainType.PASTURE, TerrainType.FOREST],
+        'tile_numbers': [9, 8, 4, 6, 4, 2, 5, 3, 11, 12, 10, 10, 9, 11, 3, 8, 5, 6]
+    }, 10],
+    # The worst possible board in terms of probability clustering (max score = 30)
+    [{
+        'terrain_types': [TerrainType.FIELD, TerrainType.FOREST, TerrainType.FIELD, TerrainType.FOREST,
+                          TerrainType.MOUNTAIN, TerrainType.HILL, TerrainType.PASTURE, TerrainType.DESERT,
+                          TerrainType.FIELD, TerrainType.MOUNTAIN, TerrainType.FIELD, TerrainType.HILL,
+                          TerrainType.MOUNTAIN, TerrainType.PASTURE, TerrainType.HILL, TerrainType.PASTURE,
+                          TerrainType.FOREST, TerrainType.PASTURE, TerrainType.FOREST],
+        'tile_numbers': [5, 5, 6, 11, 11, 3, 3, 9, 9, 8, 10, 2, 4, 12, 10, 8, 4, 6]
+    }, 30]
 ]

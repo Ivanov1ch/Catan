@@ -1,4 +1,4 @@
-from catan.balance.probability_distribution import measure_probability_distribution
+from catan.balance.probability_distribution_per_resource import measure_probability_distribution_per_resources
 from catan.balance.resource_clustering import measure_resource_clustering
 from catan.balance.resource_distribution import measure_resource_distribution
 
@@ -9,5 +9,5 @@ from catan.balance.resource_distribution import measure_resource_distribution
 def calculate_balance(board):
     resource_distribution_score = measure_resource_distribution(board)
     resource_clustering_score = measure_resource_clustering(board)
-    probability_distribution_score = measure_probability_distribution(board)
+    probability_distribution_score = measure_probability_distribution_per_resources(board)
     return resource_distribution_score

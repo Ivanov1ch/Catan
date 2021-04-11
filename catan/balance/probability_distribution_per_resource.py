@@ -1,7 +1,7 @@
 from catan.board.terrain_hexes import terrain_hex_distribution, TerrainType
 
 
-def measure_probability_distribution(board):
+def measure_probability_distribution_per_resources(board):
     # There are 58 total dots across all of the number tiles (the dots being those under the number)
     total_num_dots = 58
 
