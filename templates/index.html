@@ -26,24 +26,25 @@
             </p>
             <div class="columns is-desktop buttons are-medium" id="home-button-container">
                 <div class="column has-text-right-desktop">
-                    <a class="button is-success">
+                    <button class="button is-success" id="balanced-button" onclick="handleHomeButtonPress(true);">
                         <span class="icon">
                           <i class="fas fa-balance-scale"></i>
                         </span>
                         <span>Generate <strong>balanced board</strong></span>
-                    </a>
+                    </button>
                 </div>
                 <div class="column has-text-left-desktop">
-                    <a class="button is-danger">
+                    <button class="button is-danger" id="unbalanced-button" onclick="handleHomeButtonPress(false);">
                         <span class="icon">
                           <i class="fas fa-balance-scale-right"></i>
                         </span>
                         <span>Generate <strong>unbalanced board</strong></span>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<script type="text/javascript" src="static/js/home.js"></script>
 </body>
 </html>

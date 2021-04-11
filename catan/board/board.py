@@ -151,3 +151,24 @@ class Board:
             self.settlement_locations[current_index] = row_six
 
             current_index = len(self.settlement_locations) - 1 if multiplier == 1 else 0
+
+    # Converts self.hexes into a one-dimensional array of integers, each corresponding to the numerical value of a
+    # TerrainType (the reverse of translate_hexes_arr)
+    #
+    # At the same time, it generates a one-dimensional array of integers, each corresponding to the number of the
+    # NumberToken corresponding to the TerrainHex at that index in the converted hexes array
+    #
+    # Returns both arrays, with the terrain hex array coming first and the number token array coming second
+    def get_board_arrays(self):
+        terrain_hex_arr = []
+        number_token_arr = []
+
+        for hex_arr in self.hexes:
+            for terrain_hex in hex_arr:
+                terrain_hex_arr.append(terrain_hex.terrain_type.value)
+
+                # The desert will have no NumberToken, so this avoids an error
+                if terrain_hex.terrain_type != TerrainType.DESERT:
+                    number_token_arr.append(terrain_hex.number_token.number)
+
+        return terrain_hex_arr, number_token_arr
