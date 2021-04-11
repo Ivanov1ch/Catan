@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catan Board Generator</title>
+
+    <base href="/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/homepage.css">
+
+    <!--Import FontAwesome Kit via CDN  -->
+    <script src="https://kit.fontawesome.com/1873b48eb1.js" crossorigin="anonymous"></script>
+    <!--Import jQuery via CDN-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+<section class="hero is-link is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title">
+                Catan Board Generator
+            </p>
+            <p class="subtitle">
+                Add variety to your game night while keeping things fair!
+            </p>
+            <div class="columns is-desktop buttons are-medium" id="home-button-container">
+                <div class="column has-text-right-desktop">
+                    <a class="button is-success">
+                        <span class="icon">
+                          <i class="fas fa-balance-scale"></i>
+                        </span>
+                        <span>Generate <strong>balanced board</strong></span>
+                    </a>
+                </div>
+                <div class="column has-text-left-desktop">
+                    <a class="button is-danger">
+                        <span class="icon">
+                          <i class="fas fa-balance-scale-right"></i>
+                        </span>
+                        <span>Generate <strong>unbalanced board</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
