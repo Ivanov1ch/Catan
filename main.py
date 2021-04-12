@@ -1,6 +1,6 @@
 from flask import *
-
-from catan.board.terrain_hexes import terrain_hex_distribution
+from colour import Color
+from catan.board.terrain_hexes import terrain_hex_distribution, TerrainType
 from catan.generation.generate_board import generate_balanced_board, generate_unbalanced_board
 
 # How many random boards to test in generate_balanced_board and generate_unbalanced_board:
@@ -10,6 +10,14 @@ num_random = 10 ** 4
 # How many hexes and how many number tokens should be on a Catan board. See render_generated_board() for usage and more.
 num_hexes = sum(list(terrain_hex_distribution.values()))
 num_number_tokens = num_hexes - terrain_hex_distribution['DESERT']
+
+# A dictionary with keys equal to TerrainType values and values corresponding to the appropriate class to add to the
+# <g> tag in static/img/catan_board.svg for a TerrainHex of this TerrainType
+svg_class_conversions = {terrain_type.value: terrain_type.name.lower() for terrain_type in TerrainType}
+
+# Use the Colour library to generate a range of colors between green and red, with 101 steps in between. This will be
+# used to give a color to the calculated balance value, in increments of 0.01 (green = 0, red = 1)
+balance_color_range = list(Color('#228b22').range_to(Color('#ff0000'), 101))
 
 app = Flask(__name__)
 
@@ -53,13 +61,25 @@ def render_generated_board():
         converted_numbers_arr = list(map(int, numbers_arr))
         converted_score = float(score)
 
-        # Finally, check if the converted score is in the proper generated range. If not, redirect to the home page
+        # Check if the converted score is in the proper generated range. If not, redirect to the home page
         if converted_score < 0 or converted_score > 1:
             return redirect('/', code=307, Response=None)
 
+        # Check if every resource type is valid
+        for enum_value in converted_hexes_arr:
+            if TerrainType(enum_value) is None:
+                return redirect('/', code=307, Response=None)
+
+        # Check if every number token value is valid
+        for number_token_value in converted_numbers_arr:
+            if not 2 <= number_token_value <= 12:
+                return redirect('/', code=307, Response=None)
+
         # If we have reached this point, everything is valid! Render the page with the parsed data
         return render_template('view_board.html', terrain_hex_arr=converted_hexes_arr,
-                               number_token_arr=converted_numbers_arr, score=converted_score)
+                               number_token_arr=converted_numbers_arr, score=converted_score,
+                               svg_class_conversions=json.dumps(svg_class_conversions),
+                               balance_color=balance_color_range[round(round(converted_score, 2) / 0.01)].hex)
     except ValueError:
         # One of the values is not a number, thus the parameters are invalid and the user should be redirected home
         return redirect('/', code=307, Response=None)

@@ -1,4 +1,25 @@
 #catan-board-container svg {
     display: block;
     margin: 0 auto;
+    width: 100%;
+}
+
+#balance-score-display-bar {
+    width: 100%;
+    background-color: #ddd;
+}
+
+#balance-score-display-inner {
+    height: 30px;
+}
+
+.balance-score-display-col {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#balance-score-display-label {
+    font-weight: normal;
 }

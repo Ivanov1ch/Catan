@@ -9,17 +9,48 @@
     <link rel="stylesheet" href="static/css/board_view_page.css">
     <link rel="stylesheet" href="static/css/catan_board_styling.css"/>
 
+    <style>
+        #balance-score-display-inner {
+            background-color: {{ balance_color }};
+            width: {{ score * 100 }}%;
+        }
+    </style>
+
     <!--Import jQuery via CDN-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
-
-<div id="catan-board-container">
-    <!-- The container div in which the Catan board SVG will be loaded -->
-</div>
-
-
+<section class="container">
+    <div id="catan-board-container">
+        <!-- The container div in which the Catan board SVG will be loaded -->
+    </div>
+    <div class="container columns is-mobile" style="margin: 0 auto;">
+        <div class="column has-text-right balance-score-display-col">
+            <h4 class="title is-size-4" id="balance-score-display-label">Balance Score:</h4>
+        </div>
+        <div class="column">
+            <div id="balance-score-display-bar">
+                <div id="balance-score-display-inner"></div>
+            </div>
+        </div>
+        <div class="column has-text-left balance-score-display-col">
+            <h4 class="title is-size-4" id="balance-score-display-value"> {{ "%.4f"|format(score) }}</h4>
+        </div>
+    </div>
+    <div class="container columns" style="margin: 0 auto;">
+        <div class="column has-text-centered">
+            <h6 class="subtitle is-italic is-size-7">Balance Scores range between 0 and 1, with 0 being most balanced and 1 being most unbalanced.</h6>
+        </div>
+    </div>
+</section>
+<!-- Convert the data passed from the Python backend into JavaScript variables -->
+<script type="text/javascript">
+    const terrainHexes = {{ terrain_hex_arr}};
+    const numberTokens = {{ number_token_arr }};
+    const boardScore = {{ score }};
+    const svgClassConversions = JSON.parse({{ svg_class_conversions | tojson }});
+</script>
 <script type="text/javascript" src="static/js/board_view_page.js"></script>
 </body>
-</html>
+</html>+

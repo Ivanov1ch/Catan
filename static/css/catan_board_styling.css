@@ -23,23 +23,23 @@ text {
     fill: #d3ad7e;
 }
 
-.tile.sheep {
+.tile.pasture {
     fill: #95ba12;
 }
 
-.tile.lumber {
+.tile.forest {
     fill: #326031;
 }
 
-.tile.brick {
+.tile.hill {
     fill: #a34b35;
 }
 
-.tile.stone {
+.tile.mountain {
     fill: #79868f;
 }
 
-.tile.wheat {
+.tile.field {
     fill: #f3cd00;
 }
 
@@ -75,23 +75,23 @@ text {
     font-size: 1.5em;
 }
 
-.port.sheep {
+.port.pasture {
     stroke: #95ba12;
 }
 
-.port.lumber {
+.port.forest {
     stroke: #326031;
 }
 
-.port.brick {
+.port.hill {
     stroke: #a34b35;
 }
 
-.port.stone {
+.port.mountain {
     stroke: #79868f;
 }
 
-.port.wheat {
+.port.field {
     stroke: #f3cd00;
 }
 
@@ -100,23 +100,23 @@ text {
     r: 25;
 }
 
-.port circle.sheep {
+.port circle.pasture {
     fill: #95ba12;
 }
 
-.port circle.lumber {
+.port circle.forest {
     fill: #326031;
 }
 
-.port circle.brick {
+.port circle.hill {
     fill: #a34b35;
 }
 
-.port circle.stone {
+.port circle.mountain {
     fill: #79868f;
 }
 
-.port circle.wheat {
+.port circle.field {
     fill: #f3cd00;
 }
 
