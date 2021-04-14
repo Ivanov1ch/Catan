@@ -6,7 +6,7 @@
 // 4) Waits for the board to generate and for the backend to redirect the page to the board viewing page
 //
 // isBalanced: a boolean, where true indicates that the button for generating balanced boards has been pressed and
-//             false indicated that the button for generating unbalanced boards has been pressed
+//             false indicates that the button for generating unbalanced boards has been pressed
  */
 function handleHomeButtonPress(isBalanced) {
     if (typeof isBalanced !== 'boolean') {
