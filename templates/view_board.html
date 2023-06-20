@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>View Board | Balanced Catan Board Generator</title>
@@ -9,87 +10,96 @@
         integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="static/css/board_view_page.css">
-    <link rel="stylesheet" href="static/css/catan_board_styling.css"/>
+    <link rel="stylesheet" href="static/css/catan_board_styling.css" />
 
     <!--Import jQuery via CDN-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-            
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     <!--Import FontAwesome Kit via CDN  -->
     <script src="https://kit.fontawesome.com/1873b48eb1.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<section class="container">
-    <div id="catan-board-container">
-        <!-- The container div in which the Catan board SVG will be loaded -->
-    </div>
-    <div class="container columns is-mobile" style="margin: 0 auto;">
-        <div class="column has-text-right balance-score-display-col">
-            <h4 class="title is-size-4" id="balance-score-display-label">Balance Score:</h4>
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+            <section class="container">
+                <div id="catan-board-container">
+                    <!-- The container div in which the Catan board SVG will be loaded -->
+                </div>
+                <div class="container columns is-mobile" style="margin: 0 auto;">
+                    <div class="column has-text-right balance-score-display-col">
+                        <h4 class="title is-size-4" id="balance-score-display-label">Balance Score:</h4>
+                    </div>
+                    <div class="column">
+                        <div id="balance-score-display-bar">
+                            <div id="balance-score-display-inner"></div>
+                        </div>
+                    </div>
+                    <div class="column has-text-left balance-score-display-col">
+                        <h4 class="title is-size-4" id="balance-score-display-value"></h4>
+                    </div>
+                </div>
+                <div class="container columns" style="margin: 0 auto;">
+                    <div class="column has-text-centered">
+                        <h6 class="subtitle is-italic is-size-7">Balance Scores range between 0 and 1, with 0 being most
+                            balanced and 1 being most unbalanced.</h6>
+                    </div>
+                </div>
+            </section>
+            <section class="container mx-6 mt-6">
+                <div class="has-text-centered mt-6">
+                    <p class="subtitle is-size-5">
+                        Add variety to your game night while keeping things fair!
+                    </p>
+                    <div class="columns is-desktop buttons are-large is-desktop" id="home-button-container">
+                        <div class="column has-text-right-desktop is-full is-half-desktop">
+                            <button class="button is-success is-fullwidth" id="balanced-button"
+                                onclick="handleHomeButtonPress(true);">
+                                <span class="icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </span>
+                                <span>Generate <strong>balanced board</strong></span>
+                            </button>
+                        </div>
+                        <div class="column has-text-left-desktop is-full is-half-desktop">
+                            <button class="button is-danger is-fullwidth" id="unbalanced-button"
+                                onclick="handleHomeButtonPress(false);">
+                                <span class="icon">
+                                    <i class="fas fa-balance-scale-right"></i>
+                                </span>
+                                <span>Generate <strong>unbalanced board</strong></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-        <div class="column">
-            <div id="balance-score-display-bar">
-                <div id="balance-score-display-inner"></div>
-            </div>
-        </div>
-        <div class="column has-text-left balance-score-display-col">
-            <h4 class="title is-size-4" id="balance-score-display-value"></h4>
-        </div>
-    </div>
-    <div class="container columns" style="margin: 0 auto;">
-        <div class="column has-text-centered">
-            <h6 class="subtitle is-italic is-size-7">Balance Scores range between 0 and 1, with 0 being most balanced and 1 being most unbalanced.</h6>
-        </div>
-    </div>
-</section>
-<section class="container mx-6 mt-6">
-    <div class="has-text-centered mt-6">
-        <p class="subtitle is-size-5">
-            Add variety to your game night while keeping things fair!
-        </p>
-        <div class="columns is-desktop buttons are-large is-desktop" id="home-button-container">
-            <div class="column has-text-right-desktop is-full is-half-desktop">
-                <button class="button is-success is-fullwidth" id="balanced-button" onclick="handleHomeButtonPress(true);">
-                    <span class="icon">
-                    <i class="fas fa-balance-scale"></i>
+        <section class="hero-foot">
+            <div class="container has-text-centered pb-2">
+                <p>
+                    <span class="mr-1">
+                        <strong>Catan Board Generator</strong> by
+                        <a href="https://ivanovich.us" target="_blank">
+                            <span class="is-underlined">Dan Ivanovich</span></a>
                     </span>
-                    <span>Generate <strong>balanced board</strong></span>
-                </button>
-            </div>
-            <div class="column has-text-left-desktop is-full is-half-desktop">
-                <button class="button is-danger is-fullwidth" id="unbalanced-button" onclick="handleHomeButtonPress(false);">
-                    <span class="icon">
-                    <i class="fas fa-balance-scale-right"></i>
+                    <span class="ml-1">
+                        <a href="https://github.com/Ivanov1ch/Catan" target="_blank">
+                            <span class="icon-text">
+                                <span class="icon is-size-4">
+                                    <i class="fab fa-github"></i>
+                                </span>
+                                <span class="is-underlined">Check it out on GitHub!</span>
+                            </span>
+                        </a>
                     </span>
-                    <span>Generate <strong>unbalanced board</strong></span>
-                </button>
+                </p>
             </div>
-        </div>
-    </div>
-</section>
-<section class="footer">
-    <div class="container has-text-centered pb-2">
-        <p>
-            <span class="mr-1">
-                <strong>Catan Board Generator</strong> by
-                <a href="https://ivanovich.us" target="_blank">
-                    <span class="is-underlined">Dan Ivanovich</span></a>
-            </span>
-            <span class="ml-1">
-                <a href="https://github.com/Ivanov1ch/Catan" target="_blank">
-                    <span class="icon-text">
-                        <span class="icon is-size-4">
-                            <i class="fab fa-github"></i>
-                        </span>
-                        <span class="is-underlined">Check it out on GitHub!</span>
-                    </span>
-                </a>
-            </span>
-        </p>
-    </div>
-</div>
-<!-- Convert the data passed from the Python backend into JavaScript variables -->
-<script type="text/javascript" src="static/js/board_view_page.js"></script>
-<script type="text/javascript" src="static/js/home.js"></script>
+        </section>
+    </section>
+    <!-- Convert the data passed from the Python backend into JavaScript variables -->
+    <script type="text/javascript" src="static/js/board_view_page.js"></script>
+    <script type="text/javascript" src="static/js/home.js"></script>
 </body>
+
 </html>
