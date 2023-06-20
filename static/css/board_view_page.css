@@ -23,3 +23,15 @@
 #balance-score-display-label {
     font-weight: normal;
 }
+
+#home-button-container .button {
+    transition: 0.3s all;
+}
+
+a {
+    transition: opacity 0.35s ease-in;
+}
+
+a:hover {
+    opacity: 0.75;
+}
