@@ -21,60 +21,58 @@
 </head>
 
 <body>
-    <section class="hero is-fullheight">
-        <div class="hero-body">
-            <section class="container">
-                <div id="catan-board-container">
-                    <!-- The container div in which the Catan board SVG will be loaded -->
+    <section class="hero is-info is-fullheight">
+        <section class="container">
+            <div id="catan-board-container">
+                <!-- The container div in which the Catan board SVG will be loaded -->
+            </div>
+            <div class="container columns is-mobile" style="margin: 0 auto;">
+                <div class="column has-text-right balance-score-display-col">
+                    <h4 class="title is-size-4" id="balance-score-display-label">Balance Score:</h4>
                 </div>
-                <div class="container columns is-mobile" style="margin: 0 auto;">
-                    <div class="column has-text-right balance-score-display-col">
-                        <h4 class="title is-size-4" id="balance-score-display-label">Balance Score:</h4>
-                    </div>
-                    <div class="column">
-                        <div id="balance-score-display-bar">
-                            <div id="balance-score-display-inner"></div>
-                        </div>
-                    </div>
-                    <div class="column has-text-left balance-score-display-col">
-                        <h4 class="title is-size-4" id="balance-score-display-value"></h4>
+                <div class="column">
+                    <div id="balance-score-display-bar">
+                        <div id="balance-score-display-inner"></div>
                     </div>
                 </div>
-                <div class="container columns" style="margin: 0 auto;">
-                    <div class="column has-text-centered">
-                        <h6 class="subtitle is-italic is-size-7">Balance Scores range between 0 and 1, with 0 being most
-                            balanced and 1 being most unbalanced.</h6>
+                <div class="column has-text-left balance-score-display-col">
+                    <h4 class="title is-size-4" id="balance-score-display-value"></h4>
+                </div>
+            </div>
+            <div class="container columns" style="margin: 0 auto;">
+                <div class="column has-text-centered">
+                    <h6 class="subtitle is-italic is-size-7">Balance Scores range between 0 and 1, with 0 being most
+                        balanced and 1 being most unbalanced.</h6>
+                </div>
+            </div>
+        </section>
+        <section class="container mx-6 mt-6">
+            <div class="has-text-centered">
+                <p class="subtitle is-size-5">
+                    Don't like this board? Get a new one!
+                </p>
+                <div class="columns is-desktop buttons are-large is-desktop" id="home-button-container">
+                    <div class="column has-text-right-desktop is-full is-half-desktop">
+                        <button class="button is-success is-fullwidth" id="balanced-button"
+                            onclick="handleHomeButtonPress(true);">
+                            <span class="icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </span>
+                            <span>Generate <strong>balanced board</strong></span>
+                        </button>
+                    </div>
+                    <div class="column has-text-left-desktop is-full is-half-desktop">
+                        <button class="button is-danger is-fullwidth" id="unbalanced-button"
+                            onclick="handleHomeButtonPress(false);">
+                            <span class="icon">
+                                <i class="fas fa-balance-scale-right"></i>
+                            </span>
+                            <span>Generate <strong>unbalanced board</strong></span>
+                        </button>
                     </div>
                 </div>
-            </section>
-            <section class="container mx-6 mt-6">
-                <div class="has-text-centered mt-6">
-                    <p class="subtitle is-size-5">
-                        Add variety to your game night while keeping things fair!
-                    </p>
-                    <div class="columns is-desktop buttons are-large is-desktop" id="home-button-container">
-                        <div class="column has-text-right-desktop is-full is-half-desktop">
-                            <button class="button is-success is-fullwidth" id="balanced-button"
-                                onclick="handleHomeButtonPress(true);">
-                                <span class="icon">
-                                    <i class="fas fa-balance-scale"></i>
-                                </span>
-                                <span>Generate <strong>balanced board</strong></span>
-                            </button>
-                        </div>
-                        <div class="column has-text-left-desktop is-full is-half-desktop">
-                            <button class="button is-danger is-fullwidth" id="unbalanced-button"
-                                onclick="handleHomeButtonPress(false);">
-                                <span class="icon">
-                                    <i class="fas fa-balance-scale-right"></i>
-                                </span>
-                                <span>Generate <strong>unbalanced board</strong></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+            </div>
+        </section>
         <section class="hero-foot">
             <div class="container has-text-centered pb-2">
                 <p>
