@@ -1,4 +1,4 @@
-let balancedData = null, unbalancedData;
+let balancedData = null, unbalancedData = null;
 
 
 $.getJSON("static/generated/balanced.json", (json) => {
@@ -38,5 +38,5 @@ function handleHomeButtonPress(isBalanced) {
     let selectedBoardData = usedData.boards[selectedBoardIndex];
 
     // Redirect according to board data
-    window.location.href = `/view-board/?hexes=${selectedBoardData.hexes}&numbers=${selectedBoardData.hexes}&score=${selectedBoardData.score}&color=${selectedBoardData.color}`
+    window.location.href = `/view-board/?hexes=${selectedBoardData.hexes}&numbers=${selectedBoardData.numbers}&score=${selectedBoardData.score}&color=${selectedBoardData.color}`
 }
