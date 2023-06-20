@@ -5,6 +5,11 @@ Tired of wasting your time trying to set up a unique, well-balanced board before
 
 This project was made and submitted to the College Board as my "create task" for the AP Computer Science Principles course.
 
+<h2 align="center">Live Demo</h2>
+Go to https://catan.ivanovich.us/ to get balanced or unbalanced boards!
+
+The demo is hosted on a static site that chooses from a pre-generated, large list of 2,000 potential boards of each kind. This is an unfortunate waste of the capabilities of the backend, but this was very easy to set up *free* high-quality hosting. Code for that is on the `static-site-deployment` branch - I quickly threw it together using Frozen-Flask, if interested.
+
 <h2 align="center">About Catan</h2>
 This is a Catan board:
 <p align="center"><img src="./README_Images/catan-board.jpg" alt="Catan Board" /></p>
@@ -107,5 +112,3 @@ When a user asks the server to generate a balanced (or unbalanced) board, the se
 <p align="center"><i>The result if the user asked for an unbalanced board. This board scored 0.6126, meaning it is very unbalanced. It's clear why this is - terrain types are clustered together, as are the best number tiles.</i></p>
 
 The pages with the generated boards are populated via GET parameters, which would allow a player to bookmark/save a board they like or share the generated board with other players simply via URL.
-
-I hope to host a demo of this project in the near future on some sort of free hosting service, so that I and other Catan players may use it in their game nights. I may end up turning the demo into a static site that chooses from a pre-generated, large list of potential boards. This would be less-than-ideal and a waste of the capabilities of the Python backend, but easy to find *free*, good-quality hosting for, which will likely be the dominating factor. The required changes to the source code will be made in a separate branch when this happens.
